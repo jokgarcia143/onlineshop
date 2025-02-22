@@ -8,8 +8,9 @@ namespace Test.API.Data
         //DbSets
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
-       
+        public DbSet<SystemUser> SystemUsers { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-0PV91DC;Database=BeviOnlineDB;Integrated Security=True; TrustServerCertificate=True;");
