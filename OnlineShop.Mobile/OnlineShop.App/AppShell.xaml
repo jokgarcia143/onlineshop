@@ -4,10 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:OnlineShop.App"
-    xmlns:auth="clr-namespace:OnlineShop.App.Authentication"
-    xmlns:customer="clr-namespace:OnlineShop.App.Customer"
-    xmlns:product="clr-namespace:OnlineShop.App.Product"
-    xmlns:user="clr-namespace:OnlineShop.App.User"
+    xmlns:auth="clr-namespace:OnlineShop.App.MVVM.Views.Authentication"
+    xmlns:customer="clr-namespace:OnlineShop.App.MVVM.Views.Customer"
+    xmlns:product="clr-namespace:OnlineShop.App.MVVM.Views.Product"
+    xmlns:user="clr-namespace:OnlineShop.App.MVVM.Views.User"
     Shell.FlyoutBehavior="Disabled"
     Title="OnlineShop.App">
 
@@ -20,5 +20,11 @@
         Title="Login"
         ContentTemplate="{DataTemplate auth:LoginPage}"
         Route="LoginPage" />
+
+    <ShellContent
+    Title="Login"
+    ContentTemplate="{DataTemplate user:UserPage}"
+    Route="UserPage" />
+
 
 </Shell>

@@ -5,7 +5,7 @@
         public AppShell()
         {
             InitializeComponent();
-            _ = GoToAsync("//LoginPage"); //Route
+            _ = GoToAsync("//UserPage"); //Route
         }
     }
 }

@@ -11,22 +11,21 @@ namespace OnlineShop.App.Repositories
 {
     public class UserRepository
     {
-        SQLiteConnection _connection;
+        readonly SQLiteAsyncConnection _connection;
         public string statusMessage { get; set; }
-        
         public UserRepository()
         {
-             _connection = new SQLiteConnection(DBConfig.DatabasePath, DBConfig.Flags);
-            _connection.CreateTable<SystemUser>();
+             _connection = new SQLiteAsyncConnection(DBConfig.DatabasePath);
+            _connection.CreateTableAsync<SystemUser>();
         }
-        
         //C>R>U>D
-        public void Add(SystemUser user)
+        public async Task Add(SystemUser user)
         {
+            int result = 0;
             try
             {
-                int result = 0;
-                result = _connection.Insert(user);
+                
+                result = await _connection.InsertAsync(user);
                 statusMessage = $"{result} row(s) added";
             }
             catch (Exception ex)
@@ -34,11 +33,32 @@ namespace OnlineShop.App.Repositories
                 statusMessage = $"Error {ex.Message}";
             }
         }
-        public List<SystemUser> GetUsers() 
+        public async Task AddOrUpdate(SystemUser user)
+        {
+            int result = 0;
+            try
+            {
+                if(user.Id != 0)
+                {
+                    result = await _connection.UpdateAsync(user);
+                    statusMessage = $"{result} row(s) updated";
+                }
+                else
+                {
+                    result = await _connection.InsertAsync(user);
+                    statusMessage = $"{result} row(s) added";
+                }
+            }
+            catch (Exception ex)
+            {
+                statusMessage = $"Error {ex.Message}";
+            }
+        }
+        public async Task<List<SystemUser>> GetUsers() 
         {
             try
             {
-                return _connection.Table<SystemUser>().ToList();
+                return await _connection.Table<SystemUser>().ToListAsync();
             }
             catch (Exception ex )
             {
@@ -46,11 +66,11 @@ namespace OnlineShop.App.Repositories
                 return null;
             }
         }
-        public SystemUser GetUserById(int id) 
+        public async Task<SystemUser> GetUserById(int id) 
         {
             try
             {
-                return _connection.Table<SystemUser>().FirstOrDefault( u =>  u.Id == id);
+                return await _connection.Table<SystemUser>().FirstOrDefaultAsync( u =>  u.Id == id);
             }
             catch (Exception ex)
             {
@@ -58,18 +78,18 @@ namespace OnlineShop.App.Repositories
                 return null;
             }
         }
-        public void DeleteUser(int userId) 
+        public async Task DeleteUser(int userId) 
         {
             try
             {
                 var user = GetUserById(userId);
                 if (user != null)
                 {
-                    _connection.Delete(user);
+                    _connection.DeleteAsync(user);
                 }
                 else 
                 {
-                    statusMessage = $"{user.UserName} does not exist";
+                    statusMessage = $"{user.Result.UserName} does not exist";
                 }
             }
             catch (Exception ex)
