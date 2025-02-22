@@ -6,3 +6,7 @@
 /Test.API/.vs/Test.API/FileContentIndex
 /Test.API/Test.API/bin/Debug/net8.0
 /Test.Mobile/.vs/Test.Mobile
+/Test.Mobile/Test.Mobile/obj
+/Test.API/CSharpBasics/obj
+/Test.Mobile/.vs/ProjectEvaluation
+/Test.Mobile/Test.Mobile/bin/Debug/net8.0-android
