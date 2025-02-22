@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="OnlineShop.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OnlineShop.App"
+    xmlns:auth="clr-namespace:OnlineShop.App.Authentication"
+    xmlns:customer="clr-namespace:OnlineShop.App.Customer"
+    xmlns:product="clr-namespace:OnlineShop.App.Product"
+    xmlns:user="clr-namespace:OnlineShop.App.User"
+    Shell.FlyoutBehavior="Disabled"
+    Title="OnlineShop.App">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate auth:LoginPage}"
+        Route="LoginPage" />
+
+</Shell>
