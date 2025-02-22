@@ -1,4 +1,4 @@
-namespace OnlineShop.App.Authentication;
+namespace OnlineShop.App.MVVM.Views.Authentication;
 
 public partial class LoginPage : ContentPage
 {

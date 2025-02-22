@@ -11,16 +11,16 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Authentication\LoginPage.xaml">
+    <MauiXaml Update="MVVM\Views\Authentication\LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Customer\CustomerPage.xaml">
+    <MauiXaml Update="MVVM\Views\Customer\CustomerPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Product\ProductPage.xaml">
+    <MauiXaml Update="MVVM\Views\Product\ProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="User\UserPage.xaml">
+    <MauiXaml Update="MVVM\Views\User\UserPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

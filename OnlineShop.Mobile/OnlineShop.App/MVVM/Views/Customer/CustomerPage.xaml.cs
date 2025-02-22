@@ -1,4 +1,4 @@
-namespace OnlineShop.App.Customer;
+namespace OnlineShop.App.MVVM.Views.Customer;
 
 public partial class CustomerPage : ContentPage
 {
