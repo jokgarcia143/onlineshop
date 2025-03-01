@@ -6,15 +6,16 @@
         <Image Source="splash" />
 
         <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry Placeholder="UserName" HeightRequest="70"></Entry>
+            <Entry x:Name="txtUser" Placeholder="UserName" HeightRequest="70"></Entry>
         </Frame>
 
 
         <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry Placeholder="Password" IsPassword="True"></Entry>
+            
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"></Entry>
         </Frame>
         
-        <Button x:Name="btnLogin" Text="Login" Style="{StaticResource ButtonSecondaryBorder}" WidthRequest="300" Clicked="btnLogin_Clicked"></Button>
+        <Button x:Name="btnLogin" Text="Login" Style="{StaticResource ButtonSecondaryBorder}" WidthRequest="300" Command="LoginCommand"></Button>
         <Button x:Name="btnRegister" Text="Register" Style="{StaticResource ButtonSecondaryBorder}" WidthRequest="300" Clicked="btnRegister_Clicked"></Button>
     </VerticalStackLayout>
 </ContentPage>

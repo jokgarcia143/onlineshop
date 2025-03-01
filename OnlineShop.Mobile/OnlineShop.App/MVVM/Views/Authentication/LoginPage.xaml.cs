@@ -1,3 +1,5 @@
+using OnlineShop.App.MVVM.ViewModels;
+using OnlineShop.App.MVVM.Views.User;
 using OnlineShop.App.Services.Implementations;
 using OnlineShop.App.Services.Interfaces;
 
@@ -10,15 +12,17 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
         _authenticationService = new AuthenticationService();
-	}
+        BindingContext = new LoginPageViewModel();
+
+    }
 
     async void btnLogin_Clicked(object sender, EventArgs e)
     {
        var response = await _authenticationService.Authenticate("", "");
     }
 
-    private void btnRegister_Clicked(object sender, EventArgs e)
+    async void btnRegister_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new RegistrationPage());
     }
 }

@@ -18,11 +18,11 @@ public partial class UserPage : ContentPage
     {
         SystemUserDTO userDTO = new SystemUserDTO();
 
-        userDTO.UserName = txtUserName.Text;
-        userDTO.UserPassword = txtPassword.Text;
-        userDTO.UserEmail = txtEmail.Text;
-        userDTO.UserRoles = txtRole.Text;
+        //userDTO.UserName = txtUserName.Text;
+        //userDTO.UserPassword = txtPassword.Text;
+        //userDTO.UserEmail = txtEmail.Text;
+        //userDTO.UserRole = txtRole.Text;
 
-        _userService.AddUser(userDTO);
+        //_userService.AddUser(userDTO);
     }
 }

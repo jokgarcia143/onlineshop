@@ -29,7 +29,7 @@ namespace OnlineShop.App.Services.Implementations
             {
                 var json = JsonConvert.SerializeObject(systemUserDTO);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var result = await _httpClient.PostAsync(APIConfig.BaseUrl + "api/User/Register", content);
+                var result = await _httpClient.PostAsync($"http://10.0.2.2:5143/" + "api/auth/register", content);
             }
             catch (Exception)
             {

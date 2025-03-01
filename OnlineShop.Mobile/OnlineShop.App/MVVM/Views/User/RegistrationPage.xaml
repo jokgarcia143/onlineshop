@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineShop.App.MVVM.Views.User.RegistrationPage"
+             Title="RegistrationPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
+            <Entry x:Name="txtName" Placeholder="Name" HeightRequest="70"></Entry>
+        </Frame>
+
+        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
+            <Entry x:Name="txtUserName" Placeholder="UserName" HeightRequest="70"></Entry>
+        </Frame>
+
+        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
+            <Entry x:Name="txtPassword" Placeholder="Password" HeightRequest="70" IsPassword="True"></Entry>
+        </Frame>
+
+        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
+            <Entry x:Name="txtEmail" Placeholder="Email" HeightRequest="70"></Entry>
+        </Frame>
+
+        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
+            <Entry x:Name="txtRole" Placeholder="Role" HeightRequest="70"></Entry>
+        </Frame>
+
+        <Button x:Name="btnRegister" Text="Register" Style="{StaticResource ButtonSecondaryBorder}" WidthRequest="300" Clicked="btnRegister_Clicked"></Button>
+
+    </VerticalStackLayout>
+</ContentPage>
