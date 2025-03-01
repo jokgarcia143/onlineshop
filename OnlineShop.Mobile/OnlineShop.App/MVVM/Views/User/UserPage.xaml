@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineShop.App.MVVM.Views.User.UserPage"
+             Background="{StaticResource Primary}"
              Title="UserPage">
     <Grid RowDefinitions=".2*,.8*">
         <VerticalStackLayout>

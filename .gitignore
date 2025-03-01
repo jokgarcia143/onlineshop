@@ -10,3 +10,9 @@
 /Test.API/CSharpBasics/obj
 /Test.Mobile/.vs/ProjectEvaluation
 /Test.Mobile/Test.Mobile/bin/Debug/net8.0-android
+/OnlineShop.Mobile/.vs/OnlineShop.Mobile
+/OnlineShop.Mobile/OnlineShop.App/bin/Debug/net8.0-android
+/OnlineShop.Mobile/OnlineShop.App/obj
+/OnlineShop.Service/.vs/OnlineShop.Service
+/OnlineShop.Service/OnlineShop.API/bin/Debug/net8.0
+/OnlineShop.Service/OnlineShop.API/obj

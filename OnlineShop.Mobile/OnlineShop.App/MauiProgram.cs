@@ -34,6 +34,8 @@ namespace OnlineShop.App
 
             //Services
             builder.Services.AddSingleton<IUserService, UserService>();
+            builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddSingleton<IUserService, UserService>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

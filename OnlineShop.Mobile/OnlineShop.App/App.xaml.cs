@@ -8,9 +8,6 @@ namespace OnlineShop.App
         public App(UserRepository userRepository)
         {
             InitializeComponent();
-            
-            _userRepository = userRepository;
-
             MainPage = new AppShell();
         }
     }
