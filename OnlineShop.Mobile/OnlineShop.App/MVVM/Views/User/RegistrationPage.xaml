@@ -3,33 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineShop.App.MVVM.Views.User.RegistrationPage"
              Title="RegistrationPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout Padding="18,82" Spacing="10">
+            <StackLayout Orientation="Horizontal">
+                <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="Sign Up"
+                VerticalOptions="Center" />
 
-        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry x:Name="txtName" Placeholder="Name" HeightRequest="70"></Entry>
-        </Frame>
+                <Button
+                Command="{Binding LoginCommand}"
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalOptions="EndAndExpand"
+                Text="Login" />
+            </StackLayout>
 
-        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry x:Name="txtUserName" Placeholder="UserName" HeightRequest="70"></Entry>
-        </Frame>
+            <Label
+            FontAttributes="Bold"
+            FontSize="14"
+            HorizontalOptions="Start"
+            Text="Register to continue"
+            TextColor="{StaticResource SecondaryTextColor}"
+            VerticalOptions="Center" />
+            <StackLayout Margin="0,50,0,0" Spacing="40">
+                <StackLayout Spacing="0">
+                    <Label
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Name"
+                    TextColor="{StaticResource SecondaryTextColor}"
+                    VerticalOptions="Center" />
+                    <Entry
+                    FontSize="18"
+                    Placeholder="Enter Name"
+                    Text="{Binding Name}" />
+                </StackLayout>
+                <StackLayout Spacing="0">
+                    <Label
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Email"
+                    TextColor="{StaticResource SecondaryTextColor}"
+                    VerticalOptions="Center" />
+                    <Entry
+                    FontSize="18"
+                    Placeholder="Enter Email"
+                    Text="{Binding Email}" />
+                </StackLayout>
+                <StackLayout Margin="0" Spacing="0">
+                    <Label
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text="Password"
+                    TextColor="{StaticResource SecondaryTextColor}"
+                    VerticalOptions="Center" />
+                    <Entry
+                    FontSize="18"
+                    IsPassword="True"
+                    Placeholder="Enter Password"
+                    Text="{Binding Password}" />
+                </StackLayout>
+            </StackLayout>
+            <Button x:Name="btnRegister"
+            Margin="0,60"
+            Padding="16"
+            Background="{DynamicResource Primary}"
+            Command="{Binding RegisterCommand}"
+            CornerRadius="4"
+            Text="SIGN UP"
+            TextColor="{DynamicResource White}"/>
 
-        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry x:Name="txtPassword" Placeholder="Password" HeightRequest="70" IsPassword="True"></Entry>
-        </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 
-        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry x:Name="txtEmail" Placeholder="Email" HeightRequest="70"></Entry>
-        </Frame>
-
-        <Frame HasShadow="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50">
-            <Entry x:Name="txtRole" Placeholder="Role" HeightRequest="70"></Entry>
-        </Frame>
-
-        <Button x:Name="btnRegister" Text="Register" Style="{StaticResource ButtonSecondaryBorder}" WidthRequest="300" Clicked="btnRegister_Clicked"></Button>
-
-    </VerticalStackLayout>
 </ContentPage>

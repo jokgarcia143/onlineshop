@@ -1,4 +1,5 @@
-﻿using OnlineShop.App.Repositories;
+﻿using OnlineShop.App.MVVM.Views.Authentication;
+using OnlineShop.App.Repositories;
 
 namespace OnlineShop.App
 {
@@ -8,7 +9,9 @@ namespace OnlineShop.App
         public App(UserRepository userRepository)
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            Current.UserAppTheme = AppTheme.Light;
+            MainPage = new LoginPage();
+            //MainPage = new AppShell();
         }
     }
 }

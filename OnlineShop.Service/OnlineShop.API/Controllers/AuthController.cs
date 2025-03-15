@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using OnlineShop.API.Data.DTO;
 using OnlineShop.API.Models;
+using OnlineShop.API.Models.Response;
+using OnlineShop.API.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,19 +19,21 @@ namespace OnlineShop.API.Controllers
         private UserManager<SystemUser> _userManager;
         private RoleManager<IdentityRole> _roleManager;
         private IConfiguration _configuration;
+        private readonly AuthenticationService _authenticationService;
 
-        public AuthController(UserManager<SystemUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthController(UserManager<SystemUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, AuthenticationService authenticationService)
         {
             _roleManager = roleManager;
             _configuration = configuration;
             _userManager = userManager;
+            _authenticationService = authenticationService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO model)
         {
-            var user = new SystemUser { UserName = model.UserName, Email = model.Email };
-            var result = await  _userManager.CreateAsync(user, model.UserPassword);
+            var user = new SystemUser {UserName = model.Name, Email = model.Email };
+            var result = await  _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded) 
             {
@@ -41,7 +45,7 @@ namespace OnlineShop.API.Controllers
                 //Add Role to User Table
                 await _userManager.AddToRoleAsync(user, model.Role);
 
-                return Ok(new { Message = $"{model.UserName} registered successfully" });
+                return Ok(new { Message = $"{model.Name} registered successfully" });
             }
             return BadRequest(result.Errors);
         }
@@ -49,12 +53,19 @@ namespace OnlineShop.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
+            var user = await _userManager.FindByEmailAsync(model.Email);
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.UserPassword))
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                //var token =
-                return Ok(new { message = "Success!" });
+                //Call Auth Service
+                Customer customer = new Customer
+                {
+                    Email = user.Email
+                };
+                
+                AuthenticatedResponse response = _authenticationService.Authenticate(customer);
+
+                return Ok(response);
             }
 
             return Unauthorized();  

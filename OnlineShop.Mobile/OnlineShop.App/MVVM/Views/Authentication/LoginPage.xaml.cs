@@ -16,13 +16,13 @@ public partial class LoginPage : ContentPage
 
     }
 
-    async void btnLogin_Clicked(object sender, EventArgs e)
-    {
-       var response = await _authenticationService.Authenticate("", "");
-    }
+    //async void btnLogin_Clicked(object sender, EventArgs e)
+    //{
+    //   var response = await _authenticationService.Authenticate("", "");
+    //}
 
-    async void btnRegister_Clicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new RegistrationPage());
-    }
+    //async void btnRegister_Clicked(object sender, EventArgs e)
+    //{
+    //    await Navigation.PushAsync(new RegistrationPage());
+    //}
 }

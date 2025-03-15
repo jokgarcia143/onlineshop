@@ -23,5 +23,6 @@ namespace OnlineShop.API.Models
         public decimal Weight { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

@@ -8,10 +8,32 @@
     xmlns:customer="clr-namespace:OnlineShop.App.MVVM.Views.Customer"
     xmlns:product="clr-namespace:OnlineShop.App.MVVM.Views.Product"
     xmlns:user="clr-namespace:OnlineShop.App.MVVM.Views.User"
-    Shell.FlyoutBehavior="Disabled"
-    Title="OnlineShop.App">
+    xmlns:views="clr-namespace:OnlineShop.App.MVVM.Views"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+
+    <TabBar>
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource FontFamily="MaterialIcon" Glyph="&#xf56e;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" Route="HomePage" />
+        </Tab>
+        <Tab Title="Product">
+            <Tab.Icon>
+                <FontImageSource FontFamily="MaterialIcon" Glyph="&#xf110;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate product:ProductPage}" Route="ProductPage" />
+        </Tab>
+        <Tab Title="Account">
+            <Tab.Icon>
+                <FontImageSource FontFamily="MaterialIcon" Glyph="&#xf004;" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate customer:CustomerPage}" Route="CustomerPage" />
+        </Tab>
+    </TabBar>
+
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
@@ -24,6 +46,11 @@
     Title="Login"
     ContentTemplate="{DataTemplate user:UserPage}"
     Route="UserPage" />
+
+    <ShellContent
+Title="Home"
+ContentTemplate="{DataTemplate views:HomePage}"
+Route="HomePage" />-->
 
 
 </Shell>

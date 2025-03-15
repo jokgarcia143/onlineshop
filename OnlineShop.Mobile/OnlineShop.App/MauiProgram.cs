@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Camera.MAUI;
+using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using OnlineShop.App.MVVM.ViewModels;
 using OnlineShop.App.MVVM.Views.Authentication;
 using OnlineShop.App.MVVM.Views.User;
@@ -15,10 +17,15 @@ namespace OnlineShop.App
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .UseMauiCameraView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Material-Icon.ttf", "MaterialIcon");
+                    fonts.AddFont("FontAwesome6-Brands.otf", "FA6Brands");
+                    fonts.AddFont("FontAwesome6-Regular.otf", "FA6Regular");
                 });
 
             //Page

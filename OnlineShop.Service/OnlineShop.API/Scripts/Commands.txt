@@ -1,7 +1,11 @@
 ﻿
+--EF Intallation
+dotnet tool install --global dotnet-ef --version 8.*
 
+--First Migration
 dotnet ef migrations add <Description> --project
 dotnet ef database update --project
 
-
-dotnet ef dbcontext scaffold "BeviConnectionString" Microsoft.EntityFrameworkCore.SqlServer -o Models --project OnlineShop.API
+--New Database Changes
+dotnet ef migrations add <Description> --project
+dotnet ef database update --project
